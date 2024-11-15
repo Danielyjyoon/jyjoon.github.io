@@ -1,0 +1,82 @@
+
+all -autorecon3-T2pial
+
+#!/bin/bash
+
+# Define the directory and subject
+data_directory="/mnt/c/Users/byeby/desktop/test/stem"
+subject_name="122112"  # Using the folder name as the subject name
+
+# Set the output directory for Freesurfer results
+export SUBJECTS_DIR="${data_directory}/output"
+
+# Set the paths to the MR and FLAIR files
+MR_file="${data_directory}/MR.nii"
+FLAIR_file="${data_directory}/FLAIR.nii"
+
+# Run Freesurfer's recon-all with the specified inputs and options
+recon-all -subject "${subject_name}" -i "${MR_file}" -FLAIR "${FLAIR_file}" -FLAIRpial -all
+
+# Run the segmentBS.sh script after recon-all
+segmentBS.sh result "${pid_dir}"
+
+echo "Processing completed for subject ${subject_name}"
+
+==================
+
+mri_convert $SUBJECTS_DIR/[subject]/mri/aparc+aseg.mgz /path/to/output/aparc+aseg.nii
+
+mri_convert "/mnt/c/Users/byeby/desktop/test/Freesurfer/160216/subject_160216/mri/orig/FLAIRraw.mgz" "/mnt/c/Users/byeby/desktop/test/Freesurfer/160216/subject_160216/mri/002.nii"
+
+====================
+
+
+
+#!/bin/bash
+
+# Define the base data directory containing all PID folders
+data_directory="/mnt/c/Users/byeby/desktop/test/stem"
+
+# Loop through all the PID directories in the data directory
+for pid_dir in "${data_directory}"/*/; do
+    # Extract the PID from the directory name
+    pid=$(basename "${pid_dir}")
+    
+    # Set the path to the MR file inside each PID folder (FLAIR not used)
+    MR_file="${pid_dir}/MR.nii"
+
+    # Set the output directory to the current PID folder
+    export SUBJECTS_DIR="${pid_dir}"
+
+    echo "Processing PID: ${pid}"
+
+    # Run Freesurfer's recon-all with MR input only
+    recon-all -subject "${pid}" -i "${MR_file}" -all
+
+    # Run the segmentBS.sh script after recon-all
+    segmentBS.sh result "${pid_dir}"
+
+    echo "Processing completed for subject ${pid}"
+done
+
+echo "All processing completed."
+
+===========
+data_directory="/mnt/c/Users/byeby/desktop/test/stem"
+
+for pid in '122112'
+
+do
+    echo "PID: ${pid}"
+
+    export SUBJECTS_DIR=$data_directory/${pid}
+		
+    # T1만 있는 경우
+    # recon-all -i $SUBJECTS_DIR/${pid}_T1.nii -s $SUBJECTS_DIR/result -all
+    # T2도 있는 경우
+    recon-all -i $SUBJECTS_DIR/${pid}_T1.nii -T2 $SUBJECTS_DIR/${pid}_T2FLAIR.nii -s $SUBJECTS_DIR/result -T2pial -all
+    
+    # Brainstem segmentation
+    segmentBS.sh result $data_directory/$pid
+    
+done

@@ -1,0 +1,19 @@
+1. Docker 다운받고
+2. docker pull nipype/nipype
+3.. 기본 code
+docker run -it --rm `
+  -v "C:/Users/byeby/Desktop/test/Dockerdata:/data" `
+  -v "C:/Users/byeby/Desktop/test/Dockerdata/images:/data/images" `
+  -p 8888:8888 `
+  nipype/nipype /bin/bash
+
+4. 기본 구조
+기본 구조는: C:/Users/byeby/Desktop/test/Dockerdata를 /data로 사용하게 되고
+ 그 안에 images 폴더를 /data/images로 사용하게 됨.
+
+코드를 data에 넣으면 되고 images에 PID로 넣으면 돌릴 수 있음.
+
+5. 기타
+docker images
+exit
+docker rmi <image_name_or_id>

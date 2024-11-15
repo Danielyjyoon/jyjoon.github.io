@@ -1,0 +1,40 @@
+2024-09-20 14:48:01 [INFO]: pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+2024-09-20 14:52:27 [INFO]: pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+2024-09-20 14:52:43 [INFO]: pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+2024-09-20 14:52:43 [ERROR]: 'Namespace' object has no attribute 'batch_MR_Parc'
+Traceback (most recent call last):
+  File "C:\Users\byeby\Desktop\test\Parcellation\parcellation.py", line 144, in MRI_parcellation
+    options = options_parse(args, parc_home)
+  File "C:\Users\byeby\Desktop\test\Parcellation\parcellation.py", line 61, in options_parse
+    parser.add_argument('--batch_size', type=int, default=args.batch_MR_Parc, help="Batch size for inference. Default: 8")
+AttributeError: 'Namespace' object has no attribute 'batch_MR_Parc'
+2024-09-20 14:52:43 [ERROR]: MRI Parcellation		failed: 0x6000
+2024-09-20 15:01:15 [INFO]: pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+2024-09-20 15:01:17 [ERROR]: 'Namespace' object has no attribute 'batch_MR_Parc'
+Traceback (most recent call last):
+  File "C:\Users\byeby\Desktop\test\Parcellation\parcellation.py", line 144, in MRI_parcellation
+    options = options_parse(args, parc_home)
+  File "C:\Users\byeby\Desktop\test\Parcellation\parcellation.py", line 61, in options_parse
+    parser.add_argument('--batch_size', type=int, default=args.batch_MR_Parc, help="Batch size for inference. Default: 8")
+AttributeError: 'Namespace' object has no attribute 'batch_MR_Parc'
+2024-09-20 15:01:17 [ERROR]: MRI Parcellation		failed: 0x6000
+2024-09-20 15:20:25 [INFO]: pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+2024-09-20 15:22:47 [INFO]: pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+2024-09-20 15:23:37 [INFO]: pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+2024-09-20 15:23:37 [ERROR]: 'Namespace' object has no attribute 'batch_MR_Parc'
+Traceback (most recent call last):
+  File "C:\Users\byeby\Desktop\test\Parcellation\parcellation.py", line 144, in MRI_parcellation
+    options = options_parse(args, parc_home)
+  File "C:\Users\byeby\Desktop\test\Parcellation\parcellation.py", line 61, in options_parse
+    parser.add_argument('--batch_size', type=int, default=args.batch_MR_Parc, help="Batch size for inference. Default: 8")
+AttributeError: 'Namespace' object has no attribute 'batch_MR_Parc'
+2024-09-20 15:23:37 [ERROR]: MRI Parcellation		failed: 0x6000
+2024-09-20 15:24:53 [INFO]: pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+2024-09-20 15:24:54 [ERROR]: 'Namespace' object has no attribute 'batch_MR_Parc'
+Traceback (most recent call last):
+  File "C:\Users\byeby\Desktop\test\Parcellation\parcellation.py", line 144, in MRI_parcellation
+    options = options_parse(args, parc_home)
+  File "C:\Users\byeby\Desktop\test\Parcellation\parcellation.py", line 61, in options_parse
+    parser.add_argument('--batch_size', type=int, default=args.batch_MR_Parc, help="Batch size for inference. Default: 8")
+AttributeError: 'Namespace' object has no attribute 'batch_MR_Parc'
+2024-09-20 15:24:54 [ERROR]: MRI Parcellation		failed: 0x6000
